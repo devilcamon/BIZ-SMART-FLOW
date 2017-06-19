@@ -54,10 +54,10 @@ if($_POST['process'] == "Y")
 <form method="post">
 	<input type="hidden" name="process" id="process" value="Y">
 	User id:
-	<input type="text" name="user_id" id="user_id" value="U3842f58385e2fa1ed44500796e3ec2de">
+	<input type="text" name="user_id" id="user_id" value="U3842f58385e2fa1ed44500796e3ec2de" size="50">
 	<br>
 	Message:
-	<textarea name="message" id="message" rows="3" ></textarea>
+	<textarea name="message" id="message" rows="3" cols="60"></textarea>
 	<br>
 	<button type="submit">ส่ง</button>
 </form>
