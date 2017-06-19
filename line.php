@@ -1,5 +1,5 @@
 <?php
-echo "Hello World. eiei na";
+//echo "Hello World. eiei na";
 
 /*
  * curl -X GET \
