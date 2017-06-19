@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0cae1831-8d16-4e95-acff-891ad2fae1f0" name="Default" comment="a">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/line_bot.iml" afterPath="$PROJECT_DIR$/.idea/line_bot.iml" />
+    <list default="true" id="0cae1831-8d16-4e95-acff-891ad2fae1f0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/line.php" afterPath="$PROJECT_DIR$/line.php" />
     </list>
@@ -19,8 +18,8 @@
       <file leaf-file-name="line.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/line.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="26" lean-forward="false" selection-start-line="1" selection-start-column="26" selection-end-line="1" selection-end-column="26" />
+            <state relative-caret-position="357">
+              <caret line="20" column="16" lean-forward="true" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -37,6 +36,11 @@
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>verify</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -203,7 +207,7 @@
       <option name="presentableId" value="Default" />
       <updated>1497806491355</updated>
       <workItem from="1497806492609" duration="2670000" />
-      <workItem from="1497883998908" duration="311000" />
+      <workItem from="1497883998908" duration="721000" />
     </task>
     <task id="LOCAL-00001" summary="a">
       <created>1497809072594</created>
@@ -247,11 +251,18 @@
       <option name="project" value="LOCAL" />
       <updated>1497884439505</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="a">
+      <created>1497884458607</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1497884458607</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2981000" />
+    <option name="totallyTimeSpent" value="3391000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="0" width="1920" height="1080" extended-state="0" />
@@ -318,8 +329,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/line.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="26" lean-forward="false" selection-start-line="1" selection-start-column="26" selection-end-line="1" selection-end-column="26" />
+        <state relative-caret-position="357">
+          <caret line="20" column="16" lean-forward="true" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
           <folding />
         </state>
       </provider>
