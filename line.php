@@ -22,29 +22,42 @@ curl_close($ch);
 
 echo $result;*/
 
+if($_POST['process'] == "Y")
+{
+	$strUrl = "https://api.line.me/v2/bot/message/push";
 
-$strUrl = "https://api.line.me/v2/bot/message/push";
+	$arrHeader = array();
+	$arrHeader[] = "Content-Type: application/json";
+	$arrHeader[] = "Authorization: Bearer {$access_token}";
 
-$arrHeader = array();
-$arrHeader[] = "Content-Type: application/json";
-$arrHeader[] = "Authorization: Bearer {$access_token}";
+	$arrPostData = array();
+	/*$arrPostData['to'] = "U3842f58385e2fa1ed44500796e3ec2de";
+	$arrPostData['messages'][0]['type'] = "text";
+	$arrPostData['messages'][0]['text'] = "นี้คือการทดสอบ Push Message";*/
+	$arrPostData['to'] = $_POST['user_id'];
+	$arrPostData['messages'][0]['type'] = "text";
+	$arrPostData['messages'][0]['text'] = $_POST['message'];
 
-$arrPostData = array();
-$arrPostData['to'] = "U3842f58385e2fa1ed44500796e3ec2de";
-$arrPostData['messages'][0]['type'] = "text";
-$arrPostData['messages'][0]['text'] = "นี้คือการทดสอบ Push Message";
-
-
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL,$strUrl);
-curl_setopt($ch, CURLOPT_HEADER, false);
-curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_HTTPHEADER, $arrHeader);
-curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrPostData));
-curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-$result = curl_exec($ch);
-curl_close ($ch);
-
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_URL, $strUrl);
+	curl_setopt($ch, CURLOPT_HEADER, false);
+	curl_setopt($ch, CURLOPT_POST, true);
+	curl_setopt($ch, CURLOPT_HTTPHEADER, $arrHeader);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrPostData));
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+	$result = curl_exec($ch);
+	curl_close($ch);
+}
 ?>
 
+<form method="post">
+	<input type="hidden" name="process" id="process" value="Y">
+	User id:
+	<input type="text" name="user_id" id="user_id" value="U3842f58385e2fa1ed44500796e3ec2de">
+	<br>
+	Message:
+	<textarea name="message" id="message" rows="3" ></textarea>
+	<br>
+	<button type="submit">ส่ง</button>
+</form>
