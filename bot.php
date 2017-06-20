@@ -20,11 +20,11 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
 	$arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
 	$arrPostData['messages'][0]['type'] = "text";
 	$arrPostData['messages'][0]['text'] = "ฉันยังไม่มีชื่อนะ";
-}else if($arrJson['events'][0]['message']['text'] == "ทำอะไรได้บ้าง"){
+}else if($arrJson['events'][0]['message']['text'] == "ลงทะเบียน"){
 	$arrPostData = array();
 	$arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
 	$arrPostData['messages'][0]['type'] = "text";
-	$arrPostData['messages'][0]['text'] = "ฉันทำอะไรไม่ได้เลย คุณต้องสอนฉันอีกเยอะ";
+	$arrPostData['messages'][0]['text'] = "ลงทะเบียน Line ID กับ BizSmartFlow ได้ที่นี่  http://103.208.27.224/workflow_master4/register?line=".$arrJson['events'][0]['source']['userId'];
 }else{
 	$arrPostData = array();
 	$arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
