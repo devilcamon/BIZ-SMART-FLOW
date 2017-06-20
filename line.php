@@ -1,5 +1,5 @@
 <?php
-
+include "w_top.php";
 /*
  * curl -X POST \
 -H 'Content-Type:application/json' \
@@ -38,7 +38,7 @@ if($_POST['process'] == "Y")
 	$arrPostData['messages'][0]['type'] = "text";					// Message type
 	$arrPostData['messages'][0]['text'] = $_POST['message'];		// Message
 
-	$ch = curl_init();
+	$ch = curl_init(); 
 	curl_setopt($ch, CURLOPT_URL, $strUrl);
 	curl_setopt($ch, CURLOPT_HEADER, false);
 	curl_setopt($ch, CURLOPT_POST, true);
@@ -62,3 +62,6 @@ if($_POST['process'] == "Y")
 	<br>
 	<button type="submit">ส่ง</button>
 </form>
+
+<?php include "w_bottom_js.php";?>
+<?php include "w_bottom.php";?>
