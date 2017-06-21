@@ -8,27 +8,37 @@ Content-Type: application/x-www-form-urlencoded
 client_id=YOUR_CLIENT_ID&client_secret=YOUR_CLIENT_SECRET&code=CODE&redirect_uri=REDIRECT_URI
  */
 
-$api_url = "api-ssl.bitly.com";
+//$api_url = "http://api.bitly.com/v3/shorten?format=json&apiKey=R_184e3c7406bd4f1fb18ccd8ce3515c6e&login=devilcamon&longUrl=http%3A%2F%2F203.150.225.80%2Fbizpotential%2Fworkflow%2Fworkflow.php%3FW%3D242%26search%3DY%26PROBLEM_SYSTEM%3D%26WFR_ID%3D%26PROBLEM%3D%26WF_DET_NEXT%3D304";
+$api_url = "http://api.bitly.com/v3/shorten";
 
 $set_header = array();
-$set_header[] = "application/x-www-form-urlencoded";
+$set_header[] = "Content-Type: application/json";
 
 $set_data = array();
-$set_data['client_id'] = "f4c11aa908316736555b8fadd2c0c63bf05f078e";
-$set_data['client_secret'][0]['type'] = "6bdedd6d4efb71673da697925f8366a392c27127";
-$set_data['code'][0]['text'] = "5d249ec8bc1230a16edfcdc89ed70ca940bdd409";
-$set_data['redirect_uri'][0]['text'] = " http://103.208.27.224/workflow_master4/register?line=U3842f58385e2fa1ed44500796e3ec2de";
+$set_data['format'] = "json";
+$set_data['apiKey'] = "R_184e3c7406bd4f1fb18ccd8ce3515c6e";
+$set_data['login'] = "devilcamon";
+$set_data['longUrl'] = "http://203.150.225.80/bizpotential/workflow/workflow.php?W=242%26search=Y%26PROBLEM_SYSTEM=%26WFR_ID=%26PROBLEM=%26WF_DET_NEXT=304";
+
+$build_data = array();
+foreach($set_data as $_key => $_val)
+{
+	array_push($build_data, $_key."=".$_val);
+}
+$implode_data = implode('&', $build_data);
+$api_url .= "?".$implode_data;
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $api_url);
 curl_setopt($ch, CURLOPT_HEADER, false);
-curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_HTTPHEADER, $set_header);
-curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($set_data));
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 $result = curl_exec($ch);
 curl_close($ch);
 
-var_dump($result);
+$output = json_decode($result, true);
+
+echo '<pre>';
+print_r($output);
 ?>

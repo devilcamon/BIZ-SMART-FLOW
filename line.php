@@ -23,7 +23,7 @@ include "w_top.php";
 			</div>
 		</div>
 		<div class="form-group">
-			<div class="col-xs-8 text-center">
+			<div class="col-xs-12 text-center">
 				<button class="btn btn-success btn-lg">ส่งข้อความ</button>
 			</div>
 		</div>
