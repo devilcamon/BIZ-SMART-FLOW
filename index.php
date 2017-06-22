@@ -2,19 +2,39 @@
 include "w_top.php";
 echo "Hello World.";
 
-include "short_url.php";
+?>
 
-$url = new short_url();
-$url->set_client_id('f4c11aa908316736555b8fadd2c0c63bf05f078e');
-$url->set_client_secret('6bdedd6d4efb71673da697925f8366a392c27127');
-$url->set_generic_access_token('5d249ec8bc1230a16edfcdc89ed70ca940bdd409');
-$url->set_username('devilcamon');
-$url->set_api_key('R_184e3c7406bd4f1fb18ccd8ce3515c6e');
+<?php
+$api_url = "https://api-ssl.bitly.com/oauth/access_token";
 
-//$url->get_token_access();
-//$short_url = $url->get_short_link('http://203.150.225.80/bizpotential/workflow/workflow.php?W=242&search=Y&PROBLEM_SYSTEM=&WFR_ID=&PROBLEM=&WF_DET_NEXT=304');
+$set_header = array();
+$set_header[] = "Content-Type: application/x-www-form-urlencoded";
+$set_header[] = "Authorization: Basic ZGV2aWxjYW1vbkBob3RtYWlsLmNvbTp0YXdhdGNoYWkxMTUw";
 
-//echo $short_url;
+$set_data = array();
+$set_data['client_id'] = "f4c11aa908316736555b8fadd2c0c63bf05f078e";
+$set_data['client_secret'] = "6bdedd6d4efb71673da697925f8366a392c27127";
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $api_url);
+curl_setopt($ch, CURLOPT_HEADER, false);
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, $set_header);
+curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($set_data));
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+$result = curl_exec($ch);
+curl_close($ch);
+
+
+if($result)
+{
+	echo $result;
+}
+else
+{
+	echo "N";
+}
 ?>
 
 <a href="<?php echo $short_url; ?>" target="_blank">Click here.</a>

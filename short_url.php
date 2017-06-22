@@ -7,8 +7,29 @@ class short_url
 	public function get_token_access()
 	{
 		## Write code get token access here.
+		$api_url = "https://api-ssl.bitly.com/oauth/access_token";
 
-		$this->_tokenAccess = "b5ed2a7aa92a429e8fbf990b9e4b38386e264f8d";
+		$set_header = array();
+		$set_header[] = "Content-Type: application/x-www-form-urlencoded";
+		$set_header[] = "Authorization: Basic ZGV2aWxjYW1vbkBob3RtYWlsLmNvbTp0YXdhdGNoYWkxMTUw";
+
+		$set_data = array();
+		$set_data['client_id'] = $this->_clientID;
+		$set_data['client_secret'] = $this->_clientSecret;
+
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, $api_url);
+		curl_setopt($ch, CURLOPT_HEADER, false);
+		curl_setopt($ch, CURLOPT_POST, true);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, $set_header);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($set_data));
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+		$result = curl_exec($ch);
+		curl_close($ch);
+
+//		$this->_tokenAccess = "b5ed2a7aa92a429e8fbf990b9e4b38386e264f8d";
+		$this->_tokenAccess = $result;
 	}
 
 	public function get_short_link($url)
