@@ -1,43 +1,41 @@
 <?php
 include "w_top.php";
-echo "Hello World.";
+?>
+<div class="container">
+	<?php
+echo "Hello World.<br>";
+
+function print_pre($txt)
+{
+	echo "<pre>";
+	print_r($txt);
+	echo "</pre>";
+}
+
+echo $txt = "มอบหมายงาน ทดสอบการมอบหมายงานให้คนอื่น ##BizSmartFlow @@NS!!";
+echo "<br>";
+$find_assign = strpos($txt, 'มอบหมายงาน');
+
+if($find_assign !== false)
+{
+	echo $assign = iconv_substr($txt, 10, iconv_strlen($txt, 'utf-8'), 'utf-8');
+
+	preg_match_all("/(##)([a-zA-Z0-9_]+)( )/", $assign, $match_project, PREG_SET_ORDER);
+	preg_match_all("/(@@)([a-zA-Z0-9_]+)(!!)/", $assign, $match_to, PREG_SET_ORDER);
+
+	$assign_project = $match_project[0][0];
+	$assign_to = $match_to[0][0];
+
+	$array_search = array($assign_project, $assign_to);
+	$array_replace = array('', '');
+	echo "<br>";
+	echo $assign_detail = trim(str_replace($array_search, $array_replace, $assign));
+}
 
 ?>
 
-<?php
-$api_url = "https://api-ssl.bitly.com/oauth/access_token";
-
-$set_header = array();
-$set_header[] = "Content-Type: application/x-www-form-urlencoded";
-$set_header[] = "Authorization: Basic ZGV2aWxjYW1vbkBob3RtYWlsLmNvbTp0YXdhdGNoYWkxMTUw";
-
-$set_data = array();
-$set_data['client_id'] = "f4c11aa908316736555b8fadd2c0c63bf05f078e";
-$set_data['client_secret'] = "6bdedd6d4efb71673da697925f8366a392c27127";
-
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, $api_url);
-curl_setopt($ch, CURLOPT_HEADER, false);
-curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_HTTPHEADER, $set_header);
-curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($set_data));
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-$result = curl_exec($ch);
-curl_close($ch);
-
-
-if($result)
-{
-	echo $result;
-}
-else
-{
-	echo "N";
-}
-?>
-
+<br>
 <a href="<?php echo $short_url; ?>" target="_blank">Click here.</a>
-
+</div>
 <?php include "w_bottom_js.php";?>
 <?php include "w_bottom.php";?>
