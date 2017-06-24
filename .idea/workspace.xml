@@ -48,8 +48,8 @@
       <file leaf-file-name="send_message_function.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/send_message_function.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="487">
-              <caret line="33" column="79" lean-forward="true" selection-start-line="33" selection-start-column="79" selection-end-line="33" selection-end-column="79" />
+            <state relative-caret-position="708">
+              <caret line="46" column="23" lean-forward="false" selection-start-line="46" selection-start-column="23" selection-end-line="46" selection-end-column="23" />
               <folding>
                 <element signature="e#6#358#0#PHP" expanded="true" />
               </folding>
@@ -241,7 +241,7 @@
       <workItem from="1497894247686" duration="974000" />
       <workItem from="1498142055545" duration="2518000" />
       <workItem from="1498146433349" duration="1725000" />
-      <workItem from="1498295641536" duration="1462000" />
+      <workItem from="1498295641536" duration="1564000" />
     </task>
     <task id="LOCAL-00001" summary="a">
       <created>1497809072594</created>
@@ -411,11 +411,18 @@
       <option name="project" value="LOCAL" />
       <updated>1498296859517</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="a">
+      <created>1498297110478</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1498297110478</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12379000" />
+    <option name="totallyTimeSpent" value="12481000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="0" width="1920" height="1080" extended-state="0" />
@@ -661,8 +668,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/send_message_function.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
-          <caret line="33" column="79" lean-forward="true" selection-start-line="33" selection-start-column="79" selection-end-line="33" selection-end-column="79" />
+        <state relative-caret-position="708">
+          <caret line="46" column="23" lean-forward="false" selection-start-line="46" selection-start-column="23" selection-end-line="46" selection-end-column="23" />
           <folding>
             <element signature="e#6#358#0#PHP" expanded="true" />
           </folding>
