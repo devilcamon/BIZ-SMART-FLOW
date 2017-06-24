@@ -32,7 +32,6 @@ function assign_job($txt)
 		$line_token = "VGO54TpsjKQPB2fpcY02n2SbfETsnV6bNxZPdaeLgohtqwi7wnNl6xF+9zgA5xiv8xZhkUTBjg1Hgog0E23gvI86et1O1YHqbjJZw7FEzScidVC3J7no8vS6U0oFeeuYFei0IxF1tWcOFpTxJb5z5AdB04t89/1O/w1cDnyilFU=";
 		$line_message = $assign_to." มอบหมายคุณ ".$assign_detail;
 
-//		$build_get = "?token_access=".$line_token."&user_id=".$line_to."&message=".$line_message;
 
 		$a_data['process'] = "Y";
 		$a_data['token_access'] = $line_token;
@@ -48,11 +47,6 @@ function assign_job($txt)
 		curl_setopt($curl, CURLOPT_HEADER, false);
 		$send_result = curl_exec($curl);
 		curl_close($curl);
-
-
-		$data['assign_project'] = $assign_project;
-		$data['assign_to'] = $assign_to;
-		$data['assign_detail'] = $assign_detail;
 
 		return "มอบหมายงานให้ ".$assign_to." สำเร็จ";
 	}
