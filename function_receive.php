@@ -69,7 +69,7 @@ function assign_job($txt)
 
 function send_to_receive($txt, $user_id)
 {
-	$find_assign = strpos($txt, '-');
+	$find_assign = strpos($txt, '@');
 
 	if($find_assign !== false)
 	{
