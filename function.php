@@ -32,14 +32,21 @@ function assign_job($txt)
 		$line_token = "VGO54TpsjKQPB2fpcY02n2SbfETsnV6bNxZPdaeLgohtqwi7wnNl6xF+9zgA5xiv8xZhkUTBjg1Hgog0E23gvI86et1O1YHqbjJZw7FEzScidVC3J7no8vS6U0oFeeuYFei0IxF1tWcOFpTxJb5z5AdB04t89/1O/w1cDnyilFU=";
 		$line_message = $assign_to." มอบหมายคุณ ".$assign_detail;
 
-		$build_get = "?token_access=".$line_token."&to=".$line_to."&message=".$line_message;
+//		$build_get = "?token_access=".$line_token."&user_id=".$line_to."&message=".$line_message;
 
-		$url = 'https://bizsmartflow.herokuapp.com/send_message_function.php'.$build_get;
+		$a_data['process'] = "Y";
+		$a_data['token_access'] = $line_token;
+		$a_data['user_id'] = $line_to;
+		$a_data['message'] = $line_message;
+
+		$url = 'https://bizsmartflow.herokuapp.com/send_message_function.php';
 		$curl = curl_init();
 		curl_setopt($curl, CURLOPT_URL, $url);
+		curl_setopt($curl, CURLOPT_POST, true);
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($curl, CURLOPT_POSTFIELDS, $a_data);
 		curl_setopt($curl, CURLOPT_HEADER, false);
-		$data = curl_exec($curl);
+		$send_result = curl_exec($curl);
 		curl_close($curl);
 
 
