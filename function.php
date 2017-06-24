@@ -37,7 +37,7 @@ function assign_job($txt)
 		{
 
 			$line_token = "VGO54TpsjKQPB2fpcY02n2SbfETsnV6bNxZPdaeLgohtqwi7wnNl6xF+9zgA5xiv8xZhkUTBjg1Hgog0E23gvI86et1O1YHqbjJZw7FEzScidVC3J7no8vS6U0oFeeuYFei0IxF1tWcOFpTxJb5z5AdB04t89/1O/w1cDnyilFU=";
-			$line_message = $assign_to." มอบหมายคุณ ".$assign_detail;
+			$line_message = "คุณได้รับงานใหม่: ".$assign_detail;
 
 			$a_data['process'] = "Y";
 			$a_data['token_access'] = $line_token;
