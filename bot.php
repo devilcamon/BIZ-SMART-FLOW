@@ -39,7 +39,8 @@ elseif($json['events'][0]['message']['text'] == "ลงทะเบียน")
 	## get token access
 	$url->get_token_access();
 	## get short url
-	$short_url = $url->get_short_link('http://103.208.27.224/workflow_master4/register?line='.$json['events'][0]['source']['userId']);
+	$get_short_url = $url->get_short_link('http://103.208.27.224/workflow_master4/register?line='.$json['events'][0]['source']['userId']);
+	$short_url = $get_short_url['url'];
 
 	$set_data = array();
 	$set_data['replyToken'] = $json['events'][0]['replyToken'];

@@ -64,13 +64,16 @@ class short_url
 
 		$output = json_decode($result, true);
 
+		$return['status_code'] = $output['status_code'];
+		$return['url'] = $output['data']['url'];
+
 		if($output['status_code'] == "200")
 		{
-			return $output['data']['url'];
+			return $return;
 		}
 		else
 		{
-			return $output['status_code']."-".$output['status_txt'];
+			return $return;
 		}
 	}
 
