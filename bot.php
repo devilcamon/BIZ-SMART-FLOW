@@ -49,21 +49,24 @@ elseif($json['events'][0]['message']['text'] == "ลงทะเบียน")
 }
 else
 {
-	$assign_job = assign_job($json['events'][0]['message']['text']);
+//	$assign_job = assign_job($json['events'][0]['message']['text']);
+	$assign_job = send_to_receive($json['events'][0]['message']['text'], $json['events'][0]['source']['userId']);
 
 	if($assign_job === false)
 	{
 		$default_txt = "ฉันไม่เข้าใจคำสั่ง";
+
+		$set_data = array();
+		$set_data['replyToken'] = $json['events'][0]['replyToken'];
+		$set_data['messages'][0]['type'] = "text";
+		$set_data['messages'][0]['text'] = $default_txt;
 	}
 	else
 	{
-		$default_txt = $assign_job;
+		##
 	}
 
-	$set_data = array();
-	$set_data['replyToken'] = $json['events'][0]['replyToken'];
-	$set_data['messages'][0]['type'] = "text";
-	$set_data['messages'][0]['text'] = $default_txt;
+
 }
 
 

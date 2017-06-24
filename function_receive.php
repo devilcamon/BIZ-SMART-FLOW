@@ -66,4 +66,34 @@ function assign_job($txt)
 		return false;
 	}
 }
+
+function send_to_receive($txt, $user_id)
+{
+	$find_assign = strpos($txt, 'มอบหมายงาน');
+
+	if($find_assign !== false)
+	{
+		$line_token = "VGO54TpsjKQPB2fpcY02n2SbfETsnV6bNxZPdaeLgohtqwi7wnNl6xF+9zgA5xiv8xZhkUTBjg1Hgog0E23gvI86et1O1YHqbjJZw7FEzScidVC3J7no8vS6U0oFeeuYFei0IxF1tWcOFpTxJb5z5AdB04t89/1O/w1cDnyilFU=";
+
+		$a_data['line_token'] = $line_token;
+		$a_data['line_user_id'] = $user_id;
+		$a_data['line_message'] = $txt;
+
+		$url = 'http://103.208.27.224/workflow_master4/receive/receive.php';
+		$curl = curl_init();
+		curl_setopt($curl, CURLOPT_URL, $url);
+		curl_setopt($curl, CURLOPT_POST, true);
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($curl, CURLOPT_POSTFIELDS, $a_data);
+		curl_setopt($curl, CURLOPT_HEADER, false);
+		$send_result = curl_exec($curl);
+		curl_close($curl);
+
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
 ?>
