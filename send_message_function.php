@@ -47,7 +47,7 @@ if($_REQUEST['process'] == "Y")
 
 	if($result)
 	{
-//		echo "Y";
+		echo "Y";
 	}
 	else
 	{
