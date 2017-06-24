@@ -1,0 +1,57 @@
+<?php
+
+function assign_job($txt)
+{
+	$find_assign = strpos($txt, 'มอบหมายงาน');
+
+	if($find_assign !== false)
+	{
+		$assign = iconv_substr($txt, 10, iconv_strlen($txt, 'utf-8'), 'utf-8');
+
+		preg_match_all("/(##)([a-zA-Z0-9_]+)( )/", $assign, $match_project, PREG_SET_ORDER);
+		preg_match_all("/(@@)([a-zA-Z0-9_]+)(!!)/", $assign, $match_to, PREG_SET_ORDER);
+
+		$raw_assign_project = $match_project[0][0];
+		$raw_assign_to = $match_to[0][0];
+		$assign_project = $match_project[0][2];
+		$assign_to = $match_to[0][2];
+
+		$array_search = array($raw_assign_project, $raw_assign_to);
+		$array_replace = array('', '');
+		$assign_detail = trim(str_replace($array_search, $array_replace, $assign));
+
+		if($assign_to == "NS")
+		{
+			$line_to = "U3842f58385e2fa1ed44500796e3ec2de";
+		}
+		elseif($assign_to == "TU")
+		{
+			$line_to = "U3842f58385e2fa1ed44500796e3ec2de";
+		}
+
+		$line_token = "VGO54TpsjKQPB2fpcY02n2SbfETsnV6bNxZPdaeLgohtqwi7wnNl6xF+9zgA5xiv8xZhkUTBjg1Hgog0E23gvI86et1O1YHqbjJZw7FEzScidVC3J7no8vS6U0oFeeuYFei0IxF1tWcOFpTxJb5z5AdB04t89/1O/w1cDnyilFU=";
+		$line_message = $assign_to." มอบหมายคุณ ".$assign_detail;
+
+		$build_get = "?token_access=".$line_token."&to=".$line_to."&message=".$line_message;
+
+		$url = 'https://bizsmartflow.herokuapp.com/send_message_function.php'.$build_get;
+		$curl = curl_init();
+		curl_setopt($curl, CURLOPT_URL, $url);
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($curl, CURLOPT_HEADER, false);
+		$data = curl_exec($curl);
+		curl_close($curl);
+
+
+		$data['assign_project'] = $assign_project;
+		$data['assign_to'] = $assign_to;
+		$data['assign_detail'] = $assign_detail;
+
+		return "มอบหมายงานให้ ".$assign_to." สำเร็จ";
+	}
+	else
+	{
+		return false;
+	}
+}
+?>

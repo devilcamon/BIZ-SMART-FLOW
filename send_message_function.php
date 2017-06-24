@@ -18,9 +18,9 @@
  */
 
 ## Token from line business
-$access_token = $_POST['token_access'];
+$access_token = $_REQUEST['token_access'];
 
-if($_POST['process'] == "Y")
+if($_REQUEST['process'] == "Y")
 {
 	## Call API line push message
 	$api_url = "https://api.line.me/v2/bot/message/push";
@@ -30,9 +30,9 @@ if($_POST['process'] == "Y")
 	$set_header[] = "Authorization: Bearer {$access_token}";
 
 	$set_data = array();
-	$set_data['to'] = $_POST['user_id'];						// User id for receiver
+	$set_data['to'] = $_REQUEST['user_id'];						// User id for receiver
 	$set_data['messages'][0]['type'] = "text";					// Message type
-	$set_data['messages'][0]['text'] = $_POST['message'];		// Message
+	$set_data['messages'][0]['text'] = $_REQUEST['message'];		// Message
 
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_URL, $api_url);
@@ -47,7 +47,7 @@ if($_POST['process'] == "Y")
 
 	if($result)
 	{
-		echo "Y";
+//		echo "Y";
 	}
 	else
 	{

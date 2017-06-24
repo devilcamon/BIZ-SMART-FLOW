@@ -1,5 +1,6 @@
 <?php
 include "short_url.php";
+include "function.php";
 
 $access_token = 'VGO54TpsjKQPB2fpcY02n2SbfETsnV6bNxZPdaeLgohtqwi7wnNl6xF+9zgA5xiv8xZhkUTBjg1Hgog0E23gvI86et1O1YHqbjJZw7FEzScidVC3J7no8vS6U0oFeeuYFei0IxF1tWcOFpTxJb5z5AdB04t89/1O/w1cDnyilFU=';
 
@@ -48,10 +49,21 @@ elseif($json['events'][0]['message']['text'] == "ลงทะเบียน")
 }
 else
 {
+	$assign_job = assign_job($json['events'][0]['message']['text']);
+
+	if($assign_job === false)
+	{
+		$default_txt = "ฉันไม่เข้าใจคำสั่ง";
+	}
+	else
+	{
+		$default_txt = $assign_job;
+	}
+
 	$set_data = array();
 	$set_data['replyToken'] = $json['events'][0]['replyToken'];
 	$set_data['messages'][0]['type'] = "text";
-	$set_data['messages'][0]['text'] = "ฉันไม่เข้าใจคำสั่ง";
+	$set_data['messages'][0]['text'] = $default_txt;
 }
 
 
